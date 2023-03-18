@@ -1,3 +1,96 @@
+
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  animation: fadeIn 1.5s;
+}
+
+
+
+
+
+
+#navBar{
+  position: sticky;
+  background-color: #000;
+  height: 110px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#navBarTop{
+  height: 80px;
+}
+#navBarBottom{
+  height: 30px;
+}
+#navBarTop, #navBarBottom{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navBarLeft{
+  width: 30%;
+}
+#navBarMiddle{
+  width: 30%;
+}
+#navBarRight{
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+#pageName{
+  color: white;
+  font-size: medium;
+  font-weight: 700;
+}
+
+
+
+
+
+nav ul {
+  list-style: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Display the list items in a row */
+  width: 30vw;
+  justify-content: space-evenly;
+  font-weight: 600;
+}
+
+nav li {
+  display: inline-block; /* Display list items horizontally */
+  padding: 10px;
+}
+
+nav a {
+  font-size: 16px;
+  white-space: nowrap;
+  display: block;
+  text-decoration: none;
+  color: white;
+  transition: width 0.2s ease-out; /* Animate the width of the underline */
+}
+nav a::after {
+  content: "";
+  display: block;
+  left: 0;
+  bottom: -5px; /* Position the underline 5px below the text */
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.2s ease-out; /* Animate the width of the underline */
+}
+nav a:hover::after {
+  width: 100%; /* Animate the width of the underline to 100% on hover */
+}
+
+
 .product-container {
     display: flex;
     justify-content: space-between;
@@ -5,52 +98,52 @@
     margin: 20px;
     border: 1px solid #ccc;
     padding: 20px;
-  }
+}
   
-  .product-image {
+.product-image {
     flex-basis: 40%;
-  }
+}
   
-  .product-image img {
+.product-image img {
     max-width: 100%;
-  }
+}
   
-  .product-details {
+.product-details {
     flex-basis: 60%;
     margin-left: 20px;
-  }
+}
   
-  .product-title {
+.product-title {
     font-size: 24px;
     margin-top: 0;
-  }
+}
   
-  .product-description {
+.product-description {
     margin: 10px 0;
-  }
+}
   
-  .product-price {
+.product-price {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
+}
   
-  .product-size label {
+.product-size label {
     display: block;
     margin-bottom: 5px;
-  }
+}
   
-  .product-size select {
+.product-size select {
     padding: 5px;
     margin-bottom: 10px;
     font-size: 16px;
-  }
+}
   
-  .add-to-cart-btn {
+.add-to-cart-btn {
     background-color: #000;
     color: #fff;
     border: none;
     padding: 10px;
     font-size: 18px;
     cursor: pointer;
-  }
+}
