@@ -122,10 +122,25 @@ body {
     left: 0;
     bottom: -5px;
     width: 0;
-    height: 1.5px;
-    background-color: #000 !important;
-    transition: width 0.2s ease-out;
-  }
+    height: 3px;
+}
+
+#navbar li a {
+    position: relative;
+}
+#navbar li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.2s ease-in-out;
+}
+#navbar li a:hover::before {
+    width: 100%;
+}
 
 #navbar li a i {
     font-weight: 500;
@@ -165,15 +180,15 @@ body {
     color: #000;
 }
 
-#hero button {
+#hero a {
     background-color: whitesmoke;
     color: #000;
-    border: 0;
     padding: 14px 80px 14px 65px;
     background-repeat: no-repeat;
     cursor: pointer;
     font-weight: 700;
     font-size: 15px;
+    text-decoration: none;
 }
 
 #product1 {

@@ -20,26 +20,26 @@ if (close) {
 
 if(input) {
     input.addEventListener('click', () => {
-        if (input.value < 1) {
-            input.value = 0;
+        if (input.value < 2) {
+            input.value = 1;
         }
 })}
 if(input1) {
     input1.addEventListener('click', () => {
-        if (input1.value < 1) {
-            input1.value = 0;
+        if (input1.value < 2) {
+            input1.value = 1;
         }
 })}
 if(input2) {
     input2.addEventListener('click', () => {
-        if (input2.value < 1) {
-            input2.value = 0;
+        if (input2.value < 2) {
+            input2.value = 1;
         }
 })}
 if(input3) {
     input3.addEventListener('click', () => {
-        if (input3.value < 1) {
-            input3.value = 0;
+        if (input3.value < 2) {
+            input3.value = 1;
         }
 })}
 
