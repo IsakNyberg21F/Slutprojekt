@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -64,7 +63,7 @@
               <option>Extra-Large</option>
           </select>
             <input type="number" value="1" id="quantity-input">
-            <button class="normal">Add To Cart</button>
+            <button class="normal" onclick="addProduct(currentProduct)">Add To Cart</button>
             <h4>Product Details</h4>
             <span>Introducing our stylish and versatile glasses, perfect for anyone looking to make a statement with their eyewear. These glasses feature a sleek and modern design, with a thin, lightweight frame that is both durable and comfortable to wear.</span>
         </div>
@@ -137,27 +136,31 @@
             <a href="contact.html">Contact Us</a>
         </div>
     </footer>
-
     <script>
         var MainImg = document.getElementById("MainImg");
         var smallimg = document.getElementsByClassName("small-img");
         var sproductPrice = document.getElementById("sproduct-price");
-
+        
+        var currentProduct = 1;
         smallimg[0].onclick = function() {
             MainImg.src = smallimg[0].src;
             sproductPrice.innerText = "60$";
+            currentProduct = 1;
         }
         smallimg[1].onclick = function() {
             MainImg.src = smallimg[1].src;
             sproductPrice.innerText = "70$";
+            currentProduct = 2;
         }
         smallimg[2].onclick = function() {
             MainImg.src = smallimg[2].src;
             sproductPrice.innerText = "100$";
+            currentProduct = 3;
         }
         smallimg[3].onclick = function() {
             MainImg.src = smallimg[3].src;
             sproductPrice.innerText = "50$";
+            currentProduct = 4;
         }
     </script>
 

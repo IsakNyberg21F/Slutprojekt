@@ -1,0 +1,27 @@
+[
+    {
+        "product1": {
+            "src": "img/products/f1.jpg"
+        },
+        "product2": {
+            "id": "cleaningKit",
+            "name": "Car cleaning kit",
+            "description": "Clean your car with this kit!",
+            "price": 20,
+            "textId": "nameText",
+            "descriptionId": "descriptionText",
+            "src": "Images/car-cleaning-kit-21442919.jpg",
+            "title": "cleaningKitImage"
+        },
+        "product3": {
+            "id": "carTools",
+            "name": "Car tools",
+            "description": "Fix your car with this kit!",
+            "price": 30,
+            "textId": "nameText",
+            "descriptionId": "descriptionText",
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "title": "toolsImage"
+        }
+    }
+    ]

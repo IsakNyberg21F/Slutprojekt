@@ -63,7 +63,7 @@
               <option>Extra-Large</option>
           </select>
             <input type="number" value="1" id="quantity-input">
-            <button class="normal">Add To Cart</button>
+            <button class="normal" onclick="addProduct(currentProduct)">Add To Cart</button>
             <h4>Product Details</h4>
             <span>Upgrade your eyewear game with our premium glasses that combine fashion and function for a truly unique look. These glasses feature a bold and distinctive design, with a sturdy and comfortable frame that will make you stand out from the crowd.</span>
         </div>
@@ -136,27 +136,31 @@
             <a href="contact.html">Contact Us</a>
         </div>
     </footer>
-
     <script>
         var MainImg = document.getElementById("MainImg");
         var smallimg = document.getElementsByClassName("small-img");
         var sproductPrice = document.getElementById("sproduct-price");
 
+        currentProduct = 5;
         smallimg[0].onclick = function() {
             MainImg.src = smallimg[0].src;
-            sproductPrice.innerText = "150$";
+            sproductPrice.innerText = "60$";
+            currentProduct = 5;
         }
         smallimg[1].onclick = function() {
             MainImg.src = smallimg[1].src;
-            sproductPrice.innerText = "200$";
+            sproductPrice.innerText = "70$";
+            currentProduct = 6;
         }
         smallimg[2].onclick = function() {
             MainImg.src = smallimg[2].src;
-            sproductPrice.innerText = "50$";
+            sproductPrice.innerText = "100$";
+            currentProduct = 7;
         }
         smallimg[3].onclick = function() {
             MainImg.src = smallimg[3].src;
-            sproductPrice.innerText = "60$";
+            sproductPrice.innerText = "50$";
+            currentProduct = 8;
         }
     </script>
 
