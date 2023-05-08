@@ -1,27 +1,36 @@
 [
     {
         "product1": {
-            "src": "img/products/f1.jpg"
+            "src": "img/products/f1.jpg",
+            "price": 60
         },
         "product2": {
-            "id": "cleaningKit",
-            "name": "Car cleaning kit",
-            "description": "Clean your car with this kit!",
-            "price": 20,
-            "textId": "nameText",
-            "descriptionId": "descriptionText",
             "src": "Images/car-cleaning-kit-21442919.jpg",
-            "title": "cleaningKitImage"
+            "price": 70
         },
         "product3": {
-            "id": "carTools",
-            "name": "Car tools",
-            "description": "Fix your car with this kit!",
-            "price": 30,
-            "textId": "nameText",
-            "descriptionId": "descriptionText",
             "src": "Images/istockphoto-492201907-612x612.jpg",
-            "title": "toolsImage"
+            "price": 100
+        },
+        "product4": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 50
+        },
+        "product5": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 200
+        },
+        "product6": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 160
+        },
+        "product7": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 120
+        },
+        "product8": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 90
         }
     }
     ]
