@@ -34,6 +34,7 @@ if(input) {
 })}
 
 var trArray = [];
+var rowCounter = 0; // add this global counter variable
 
 function addProduct(currentProduct){
     fetch('data.json')
@@ -44,8 +45,9 @@ function addProduct(currentProduct){
     console.log(currentProduct)
     // create <tr> element
     var tr = document.createElement("tr");
-    tr.id = "tr" + currentProduct;
+    tr.id = "tr" + rowCounter; // use the rowCounter variable as part of the id
     console.log(tr.id);
+    rowCounter++; // increment the rowCounter
 
     // create <td> elements
     var td1 = document.createElement("td");
@@ -63,7 +65,6 @@ function addProduct(currentProduct){
     a.appendChild(i);
     a.id = "fa-times-circle";
     td1.appendChild(a);
-    console.log(a.id);
 
     // create <img> element
     var img = document.createElement("img");
@@ -208,5 +209,15 @@ function load_cart(){
         var newTr = document.createElement('tr');
         newTr.innerHTML += value;
         tbody.appendChild(newTr);
+
+        // add event listener to remove the row
+        if (newTr.tagName === "TR") {
+            var faTimesCircle = newTr.querySelector("#fa-times-circle");
+            faTimesCircle.addEventListener("click", function() {
+                newTr.remove();
+                // remove from localStorage
+                localStorage.removeItem(key);
+            });
+        }
     }
 }
