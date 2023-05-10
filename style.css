@@ -338,6 +338,13 @@ footer a:hover {
 
 /* Single Product */
 
+.small-img {
+    width: 100%;
+}
+#MainImg {
+    width: 100%;
+}
+
 #prodetails {
     display: flex;
     margin-top: 20px;
