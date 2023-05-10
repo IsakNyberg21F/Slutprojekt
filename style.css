@@ -74,7 +74,7 @@ body {
     width: 100%;
 }
 
-#Header {
+#navBar {
     display: flex;
     align-items: center;
     padding: 20px 80px;
@@ -90,19 +90,19 @@ body {
     height: 50px;
 }
 
-#navbar {
+#navigation {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 100px;
 }
 
-#navbar li {
+#navigation li {
     list-style: none;
     padding: 0 20px;
 }
 
-#navbar li a {
+#navigation li a {
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
@@ -110,13 +110,13 @@ body {
     transition: 0.3s ease;
 }
 
-#navbar li a:hover,
-#navbar li a.active {
+#navigation li a:hover,
+#navigation li a.active {
     color: black;
 }
 
-#navbar li a.active::after,
-#navbar li a:hover::after {
+#navigation li a.active::after,
+#navigation li a:hover::after {
     content: "";
     display: block;
     left: 0;
@@ -124,10 +124,10 @@ body {
     width: 0;
 }
 
-#navbar li a {
+#navigation li a {
     position: relative;
 }
-#navbar li a::before {
+#navigation li a::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -137,11 +137,11 @@ body {
     background-color: black;
     transition: width 0.2s ease-in-out;
 }
-#navbar li a:hover::before {
+#navigation li a:hover::before {
     width: 100%;
 }
 
-#navbar li a i {
+#navigation li a i {
     font-weight: 500;
     font-size: 20px;
 }

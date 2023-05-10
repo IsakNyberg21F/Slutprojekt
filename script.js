@@ -34,7 +34,6 @@ if(input) {
 })}
 
 var trArray = [];
-var rowCounter = 0; // add this global counter variable
 
 function addProduct(currentProduct){
     fetch('data.json')
@@ -45,9 +44,8 @@ function addProduct(currentProduct){
     console.log(currentProduct)
     // create <tr> element
     var tr = document.createElement("tr");
-    tr.id = "tr" + rowCounter; // use the rowCounter variable as part of the id
+    tr.id = "tr";
     console.log(tr.id);
-    rowCounter++; // increment the rowCounter
 
     // create <td> elements
     var td1 = document.createElement("td");
@@ -115,15 +113,19 @@ function addProduct(currentProduct){
     tr.appendChild(td4);
     tr.appendChild(td5);
     tr.appendChild(td6);
+
+    // add event listener to remove the row
+    a.addEventListener("click", function() {
+        tr.remove();
+        // remove from localStorage
+        localStorage.removeItem(tr.id);
+    });
+
     // Store the tr element in localStorage
-    localStorage.setItem('tr' + currentProduct, tr.outerHTML);
+    localStorage.setItem(tr.id, tr.outerHTML);
 })
 .catch(error => console.error(error));
 }
-
-a.addEventListener( 'click', function(){
-    document.getElementById("tr1").remove();
-  } );
 
 /*removeButton1 = document.getElementById("fa-times-circle1");
 removeButton2 = document.getElementById("fa-times-circle2");
@@ -211,13 +213,11 @@ function load_cart(){
         tbody.appendChild(newTr);
 
         // add event listener to remove the row
-        if (newTr.tagName === "TR") {
-            var faTimesCircle = newTr.querySelector("#fa-times-circle");
-            faTimesCircle.addEventListener("click", function() {
-                newTr.remove();
-                // remove from localStorage
-                localStorage.removeItem(key);
-            });
-        }
+        var faTimesCircle = newTr.querySelector("#fa-times-circle");
+        faTimesCircle.addEventListener("click", function() {
+            newTr.remove();
+            // remove from localStorage
+            localStorage.removeItem(key);
+        });
     }
 }
