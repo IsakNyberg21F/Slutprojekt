@@ -76,12 +76,12 @@ function addProduct(currentProduct) {
       td5_input.setAttribute("type", "number");
       td5_input.setAttribute("value", quantityInput.value);
       td5_input.setAttribute("id", "quantity-input" + currentProduct);
-      
+
       var price = data[0]["product" + currentProduct].price;
       var quantity = parseInt(quantityInput.value);
       var totalPrice = price * quantity;
       subtotalValue += totalPrice;
-      
+
       var td6_text = document.createTextNode("$" + totalPrice);
 
       // append the <td> elements to the <tr> element
@@ -127,7 +127,7 @@ function load_cart() {
 
     var tbody = document.getElementById("tbody");
     var cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
     cart.forEach(item => {
     var newTr = document.createElement("tr");
     newTr.innerHTML = item;
@@ -136,9 +136,9 @@ function load_cart() {
     // add event listener to remove the row
     var faTimesCircle = newTr.querySelector("#fa-times-circle");
     faTimesCircle.addEventListener("click", function() {
-      removeRow(newTr);
-    });
+        removeRow(newTr);
   });
+});
 }
 
 function removeRow(newTr) {
@@ -152,6 +152,13 @@ function removeRow(newTr) {
     localStorage.setItem("cart", JSON.stringify(cart));
     localStorage.setItem("subtotalValue", subtotalValue.toString());
     update_subtotal();
+  
+    // Remove the product from local storage
+    var productId = newTr.id.slice(2); // Extract the product ID from the row ID
+    var productKey = "product" + productId;
+    var productData = JSON.parse(localStorage.getItem("productData")) || {};
+    delete productData[productKey];
+    localStorage.setItem("productData", JSON.stringify(productData));
 }
 /*
 
