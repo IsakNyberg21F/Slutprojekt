@@ -24,6 +24,7 @@ if(input) {
 
 var subtotalValue = 0;
 
+// Function to add the product to the localStorage
 function addProduct(currentProduct) {
   fetch('data.json')
     .then(response => response.json())
@@ -93,6 +94,7 @@ function addProduct(currentProduct) {
         tr.appendChild(td5);
         tr.appendChild(td6);
 
+        // Add the tr element to localStorage and subtotalValue
         cart.push({ id: "tr" + currentProduct, html: tr.outerHTML });
         localStorage.setItem("cart", JSON.stringify(cart));
         localStorage.setItem("subtotalValue", subtotalValue.toString());
@@ -100,6 +102,7 @@ function addProduct(currentProduct) {
     .catch(error => console.error(error));
 }
 
+// Function to update the subtotal elements
 function update_subtotal() {
   var subtotalValue = localStorage.getItem("subtotalValue");
   console.log(subtotalValue);
@@ -115,6 +118,8 @@ function update_subtotal() {
     localStorage.setItem("subtotalValue", subtotalValue.toString());
   }
 }
+
+// Function to load the added products
 function load_cart() {
     update_subtotal();
   
@@ -137,7 +142,8 @@ function load_cart() {
       });
     });
   }
-  
+
+// Function to remove the clicked product
 function removeRow(row) {
     var productId = row.id.replace("tr", "");
     var productPrice = parseFloat(row.querySelector("td:nth-child(6)").textContent.slice(1));
@@ -161,6 +167,7 @@ function removeRow(row) {
     update_subtotal();
   }
 
+// Fuction to reset the cart when proceeding to checkout
 function checkout() {
     alert("Thanks for purchase!");
     var subtotalInput = document.getElementById("cart-subtotal");
@@ -173,44 +180,3 @@ function checkout() {
     localStorage.clear();
     load_cart();
 }
-/*
-
- // Hämtar JSON-data från ammodata.json
- fetch("data.json")
- .then(response => response.json())
- .then(data => {
-
-     // Hittar HTML-element som visar JSON-data
-     const subjectContainer = document.querySelector(".jsonCode");
-     const tableBody = subjectContainer.querySelector("table tbody");
-
-     // Loopar igenom objektet som matchar id och skapar en HTML-tabellrad för varje objekt
-     for (let i = 0; i < data[id].length; i++) {
-     const ammo = data[id][i];
-
-     const newRow = document.createElement("tr");
-     newRow.innerHTML = `
-        <tr>
-            <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-            <td><img src="img/products/f1.jpg" alt=""></td>
-            <td>Rayban 1</td>
-            <td>$60</td>
-            <td><input type="number" value="1" id="quantity-input1"></td>
-            <td>$60</td>
-        </tr>
-         <td><img class="icon" src="${ammo.icon}" alt="" style="object-fit: contain;"></td>
-         <td>${ammo.name}</td>
-         <td>${ammo.fleshDmg}</td>
-         <td>${ammo.penetration}</td>
-         <td>${ammo.armorDmg}</td>
-         <td style="color: ${ammo.recoil <= 0 ? 'green' : 'red'}">${ammo.recoil}</td>
-         <td>${ammo.projectileSpeed}</td>
-         <td>${ammo.specialEffects}</td>
-         <td>${ammo.obtainedBy}</td>
-    `;
-
-     // Lägger till raden i HTML-tabellen
-     tableBody.appendChild(newRow);
-     }
- })
- .catch(error => console.error(error)); */
