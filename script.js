@@ -15,17 +15,6 @@ if (close) {
     })
 }
 
-/*for (let i = 0; i < 8; i++) {
-    inp = document.getElementById("quantity-input" + i);;
-    console.log(inp);
-    if(inp) {
-        inp.addEventListener('click', () => {
-            if (inp.value < 2) {
-                inp.value = 1;
-            }
-    })}
-  }*/
-
 if(input) {
     input.addEventListener('click', () => {
         if (input.value < 2) {
@@ -39,126 +28,150 @@ function addProduct(currentProduct) {
   fetch('data.json')
     .then(response => response.json())
     .then(data => {
-      var sproductPrice = document.getElementById("sproduct-price");
-      var quantityInput = document.getElementById("quantity-input");
 
-      // create <tr> element
-      var tr = document.createElement("tr");
-      tr.id = "tr" + currentProduct;
+        // Store the tr element in localStorage
+        var cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      // create <td> elements
-      var td1 = document.createElement("td");
-      var td2 = document.createElement("td");
-      var td3 = document.createElement("td");
-      var td4 = document.createElement("td");
-      var td5 = document.createElement("td");
-      var td6 = document.createElement("td");
+        var productExists = cart.some(item => item.id === "tr" + currentProduct);
 
-      // create <a> element with <i> child
-      var a = document.createElement("a");
-      var i = document.createElement("i");
-      i.classList.add("far", "fa-times-circle");
-      a.setAttribute("href", "#");
-      a.appendChild(i);
-      a.id = "fa-times-circle";
-      td1.appendChild(a);
+        if (productExists) {
+            // Product already exists, show a message or handle it accordingly
+            console.log("Product already added to the cart.");
+            return;
+        }
+        var sproductPrice = document.getElementById("sproduct-price");
+        var quantityInput = document.getElementById("quantity-input");
 
-      // create <img> element
-      var img = document.createElement("img");
-      img.setAttribute("src", "img/products/f" + currentProduct + ".jpg");
-      img.setAttribute("alt", "image");
-      td2.appendChild(img);
+        // create <tr> element
+        var tr = document.createElement("tr");
+        tr.id = "tr" + currentProduct;
 
-      // create text nodes for the remaining <td> elements
-      var td3_text = document.createTextNode("Rayban " + currentProduct);
-      var td4_text = document.createTextNode(sproductPrice.innerText);
-      var td5_input = document.createElement("input");
-      td5_input.setAttribute("type", "number");
-      td5_input.setAttribute("value", quantityInput.value);
-      td5_input.setAttribute("id", "quantity-input" + currentProduct);
+        // create <td> elements
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        var td3 = document.createElement("td");
+        var td4 = document.createElement("td");
+        var td5 = document.createElement("td");
+        var td6 = document.createElement("td");
 
-      var price = data[0]["product" + currentProduct].price;
-      var quantity = parseInt(quantityInput.value);
-      var totalPrice = price * quantity;
-      subtotalValue += totalPrice;
+        // create <a> element with <i> child
+        var a = document.createElement("a");
+        var i = document.createElement("i");
+        i.classList.add("far", "fa-times-circle");
+        a.setAttribute("href", "#");
+        a.appendChild(i);
+        a.id = "fa-times-circle";
+        td1.appendChild(a);
 
-      var td6_text = document.createTextNode("$" + totalPrice);
+        // create <img> element
+        var img = document.createElement("img");
+        img.setAttribute("src", "img/products/f" + currentProduct + ".jpg");
+        img.setAttribute("alt", "image");
+        td2.appendChild(img);
 
-      // append the <td> elements to the <tr> element
-      td3.appendChild(td3_text);
-      td4.appendChild(td4_text);
-      td5.appendChild(td5_input);
-      td6.appendChild(td6_text);
-      tr.appendChild(td1);
-      tr.appendChild(td2);
-      tr.appendChild(td3);
-      tr.appendChild(td4);
-      tr.appendChild(td5);
-      tr.appendChild(td6);
+        // create text nodes for the remaining <td> elements
+        var td3_text = document.createTextNode("Rayban " + currentProduct);
+        var td4_text = document.createTextNode(sproductPrice.innerText);
+        var td5_input = document.createTextNode(quantityInput.value);
 
-      // Store the tr element in localStorage
-      var cart = JSON.parse(localStorage.getItem("cart")) || [];
+        var price = data[0]["product" + currentProduct].price;
+        var quantity = parseInt(quantityInput.value);
+        var totalPrice = price * quantity;
+        subtotalValue += totalPrice;
 
-      var productExists = cart.some(item => item.includes("tr" + currentProduct));
+        var td6_text = document.createTextNode("$" + totalPrice);
 
-      if (productExists) {
-        // Product already exists, show a message or handle it accordingly
-        console.log("Product already added to the cart.");
-        return;
-      }
-      cart.push(tr.outerHTML);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      localStorage.setItem("subtotalValue", subtotalValue.toString());
+        // append the <td> elements to the <tr> element
+        td3.appendChild(td3_text);
+        td4.appendChild(td4_text);
+        td5.appendChild(td5_input);
+        td6.appendChild(td6_text);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        tr.appendChild(td6);
+
+        cart.push({ id: "tr" + currentProduct, html: tr.outerHTML });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("subtotalValue", subtotalValue.toString());
     })
     .catch(error => console.error(error));
 }
 
 function update_subtotal() {
-    var subtotalValue = localStorage.getItem("subtotalValue");
-    console.log(subtotalValue);
-    var subtotalInput = document.getElementById("cart-subtotal");
-    var subtotalInput2 = document.getElementById("cart-subtotal-2");
+  var subtotalValue = localStorage.getItem("subtotalValue");
+  console.log(subtotalValue);
+  var subtotalInput = document.getElementById("cart-subtotal");
+  var subtotalInput2 = document.getElementById("cart-subtotal-2");
+  if(subtotalValue == null || subtotalValue < 0){
+    subtotalInput.innerHTML = "$ " + 0;
+    subtotalInput2.innerHTML = "$ " + 0;
+  }
+  else{
     subtotalInput.innerHTML = "$ " + subtotalValue;
     subtotalInput2.innerHTML = "$ " + subtotalValue;
+    localStorage.setItem("subtotalValue", subtotalValue.toString());
+  }
 }
-
 function load_cart() {
     update_subtotal();
-
+  
     var tbody = document.getElementById("tbody");
+    tbody.innerHTML = ""; // Clear the existing table rows
+  
     var cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+    console.log(cart);
+  
     cart.forEach(item => {
-    var newTr = document.createElement("tr");
-    newTr.innerHTML = item;
-    tbody.appendChild(newTr);
-
-    // add event listener to remove the row
-    var faTimesCircle = newTr.querySelector("#fa-times-circle");
-    faTimesCircle.addEventListener("click", function() {
+      var newTr = document.createElement("tr");
+      newTr.innerHTML = item.html;
+      newTr.id = item.id;
+      tbody.appendChild(newTr);
+  
+      // add event listener to remove the row
+      var faTimesCircle = newTr.querySelector("#fa-times-circle");
+      faTimesCircle.addEventListener("click", function() {
         removeRow(newTr);
-  });
-});
-}
-
-function removeRow(newTr) {
+      });
+    });
+  }
+  
+function removeRow(row) {
+    var productId = row.id.replace("tr", "");
+    var productPrice = parseFloat(row.querySelector("td:nth-child(6)").textContent.slice(1));
     var subtotalValue = localStorage.getItem("subtotalValue");
-    var productPrice = parseFloat(newTr.querySelector("td:nth-child(6)").textContent.slice(1));
+  
+    // Remove the row from the table
+    row.remove();
+  
+    // Remove the item from the cart in localStorage
+    var cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart = cart.filter(item => item.id !== row.id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  
+    // Subtract the product price from the subtotal value
     subtotalValue -= productPrice;
   
-    newTr.remove();
-    var cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart = cart.filter(item => item !== newTr.outerHTML);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    // Update the subtotal value in localStorage
     localStorage.setItem("subtotalValue", subtotalValue.toString());
-    update_subtotal();
   
-    // Remove the product from local storage
-    var productId = newTr.id.slice(2); // Extract the product ID from the row ID
-    var productKey = "product" + productId;
-    var productData = JSON.parse(localStorage.getItem("productData")) || {};
-    delete productData[productKey];
-    localStorage.setItem("productData", JSON.stringify(productData));
+    // Update the displayed subtotal
+    update_subtotal();
+  }
+
+function checkout() {
+    alert("Thanks for purchase!");
+    var subtotalInput = document.getElementById("cart-subtotal");
+    var subtotalInput2 = document.getElementById("cart-subtotal-2");
+    subtotalInput.innerHTML = "$ " + 0;
+    subtotalInput2.innerHTML = "$ " + 0;
+    var cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.clear();
+    load_cart();
 }
 /*
 
