@@ -647,6 +647,9 @@ footer a:hover {
     #mobile {
         display: flex;
     }
+    #navigation {
+        display: none;
+    }
     #mobile i {
         color: #1a1a1a;
         font-size: 24px;
@@ -690,6 +693,9 @@ footer a:hover {
     }
     #form-details form {
         width: 50%;
+    }
+    #about-head {
+        flex-direction: column;
     }
 }
 
