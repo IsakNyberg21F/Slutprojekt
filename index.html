@@ -1,61 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-    <title>Webshop 2</title>
+    <title>Smiley</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="navBar">
-    <div id="navBarTop">
-      <p id="pageName">Page Name</p>
-    </div>
-    <div id="navBarBottom">
-      <div id="navBarLeft">
 
-      </div>
-      <div id="navBarMiddle">
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="omMig.html">Products</a></li>
-            <li><a href="utbildning.html">About</a></li>
-            <li><a href="kontakt.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div id="navBarRight">
-        <a href="">
-          <img src="Images/cart.png" alt="" height="30px">
-        </a>
-      </div>
-    </div>
-  </div>
-  <!--<div class="product-container">
-    <div class="product-image">
-      <img src="shoe.jpg" alt="shoe" />
-    </div>
-    <div class="product-details">
-      <h1 class="product-title">dsadsadsadas</h1>
-      <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper sapien ac tellus ultrices, at euismod nibh fringilla.</p>
-      <div class="product-price">$99.99</div>
-      <div class="product-size">
-        <label for="size">Size:</label>
-        <select id="size" name="size">
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-        </select>
-      </div>
-      <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
-    </div>
-  </div>
-  -->
-  <script href="script.js"></script>
+<body>
+    <section id="navBar">
+        <a href="index.html"><img src="img/logo.png" class="logo" alt="logoImage"></a>
+
+        <div>
+            <ul id="navigation">
+                <li id="close"><i class="far fa-times"></i></li>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="hero">
+        <h4>Trade-in-offers</h4>
+        <h2>Incredible deals</h2>
+        <h1>On every product</h1>
+        <p>Save your money with coupons and up to 70% off</p>
+        <a href="shop.html">Shop Now</a>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f1.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 1</h5>
+                    <h4>$60</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f2.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 2</h5>
+                    <h4>$70</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f3.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 3</h5>
+                    <h4>$100</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f4.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 4</h5>
+                    <h4>$50</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="logoImage">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong>Near New Fountain Ministry, Sun-City, Adjei Kojo, Ghana</p>
+            <p><strong>Phone:</strong> 0702021992</p>
+            <p><strong>Hours:</strong> 02:00 - 01:00, Monday - Monday</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                  <a class="fab fa-facebook-f" href="https://www.facebook.com/"></a>
+                  <a class="fab fa-twitter" href="https://twitter.com/albert12798"></a>
+                  <a class="fab fa-instagram" href="https://www.instagram.com/"></a>
+                  <a class="fab fa-pinterest-p" href="https://www.pinterest.com/"></a>
+                  <a class="fab fa-youtube" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
 </body>
+
 </html>
