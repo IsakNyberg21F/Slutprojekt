@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="navBar">
+        <a href="index.html"><img src="img/logo.png" class="logo" alt="logoImage"></a>
+
+        <div>
+            <ul id="navigation">
+                <li id="close"><i class="far fa-times"></i></li>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="img/products/f5.jpg" id="MainImg" alt="MainImg">
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="img/products/f5.jpg" class="small-img" alt="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="img/products/f6.jpg" class="small-img" alt="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="img/products/f7.jpg" class="small-img" alt="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="img/products/f8.jpg" class="small-img" alt="small-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home / Glasses</h6>
+            <h4>Rayban Glasses</h4>
+            <h2 id="sproduct-price">$150</h2>
+            <select>
+              <option>Select Size</option>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Extra-Large</option>
+          </select>
+            <input type="number" value="1" id="quantity-input">
+            <button class="normal" onclick="addProduct(currentProduct)">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span>Upgrade your eyewear game with our premium glasses that combine fashion and function for a truly unique look. These glasses feature a bold and distinctive design, with a sturdy and comfortable frame that will make you stand out from the crowd.</span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f1.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 1</h5>
+                    <h4>$60</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f2.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 2</h5>
+                    <h4>$70</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f3.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 3</h5>
+                    <h4>$100</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="img/products/f4.jpg" alt="">
+                <div class="des">
+                    <span>Rayban</span>
+                    <h5>Rayban 4</h5>
+                    <h4>$50</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="logoImage">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong>Near New Fountain Ministry, Sun-City, Adjei Kojo, Ghana</p>
+            <p><strong>Phone:</strong> 0702021992</p>
+            <p><strong>Hours:</strong> 02:00 - 01:00, Monday - Monday</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <a class="fab fa-facebook-f" href="https://www.facebook.com/"></a>
+                    <a class="fab fa-twitter" href="https://twitter.com/albert12798"></a>
+                    <a class="fab fa-instagram" href="https://www.instagram.com/"></a>
+                    <a class="fab fa-pinterest-p" href="https://www.pinterest.com/"></a>
+                    <a class="fab fa-youtube" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+    <script>
+        var MainImg = document.getElementById("MainImg");
+        var smallimg = document.getElementsByClassName("small-img");
+        var sproductPrice = document.getElementById("sproduct-price");
+
+        currentProduct = 5;
+        smallimg[0].onclick = function() {
+            MainImg.src = smallimg[0].src;
+            sproductPrice.innerText = "200$";
+            currentProduct = 5;
+        }
+        smallimg[1].onclick = function() {
+            MainImg.src = smallimg[1].src;
+            sproductPrice.innerText = "160$";
+            currentProduct = 6;
+        }
+        smallimg[2].onclick = function() {
+            MainImg.src = smallimg[2].src;
+            sproductPrice.innerText = "120$";
+            currentProduct = 7;
+        }
+        smallimg[3].onclick = function() {
+            MainImg.src = smallimg[3].src;
+            sproductPrice.innerText = "90$";
+            currentProduct = 8;
+        }
+    </script>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

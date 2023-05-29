@@ -1,0 +1,36 @@
+[
+    {
+        "product1": {
+            "src": "img/products/f1.jpg",
+            "price": 60
+        },
+        "product2": {
+            "src": "Images/car-cleaning-kit-21442919.jpg",
+            "price": 70
+        },
+        "product3": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 100
+        },
+        "product4": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 50
+        },
+        "product5": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 200
+        },
+        "product6": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 160
+        },
+        "product7": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 120
+        },
+        "product8": {
+            "src": "Images/istockphoto-492201907-612x612.jpg",
+            "price": 90
+        }
+    }
+    ]
